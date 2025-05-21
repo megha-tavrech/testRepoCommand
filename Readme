@@ -1,0 +1,8 @@
+Summary Table of CI/CD Steps
+Category	Examples
+CI	Checkout, Build, Lint, Test
+Artifact Management	Assemble APK/AAB, Upload to GitHub/Firebase
+Deployment	Firebase, Play Store, Internal QA channels
+Quality/Security	Lint, Detekt, Dependency Scanning, Coverage
+Notifications	Slack, Email, GitHub status badges
+Secrets & Permissions	Secure tokens, Environment separation
