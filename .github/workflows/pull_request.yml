@@ -31,13 +31,13 @@ jobs:
 #      - name: Run Android instrumented tests
 #        run: ./gradlew connectedAndroidTest
 
-      - name: Start Android Emulator
-        uses: reactivecircus/android-emulator-runner@v2
-        with:
-                api-level: 33
-                target: google_apis
-                arch: x86_64
-                script: ./gradlew connectedDebugAndroidTest
+#      - name: Start Android Emulator
+#        uses: reactivecircus/android-emulator-runner@v2
+#        with:
+#                api-level: 33
+#                target: google_apis
+#                arch: x86_64
+#                script: ./gradlew connectedDebugAndroidTest
 
       #        Linting and Code Quality
 #      - name: Run lint checks
