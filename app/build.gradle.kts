@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.compose.compiler)
 }
 
 android {
@@ -47,6 +48,16 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+    lint {
+        abortOnError = false
+        checkReleaseBuilds = false
+        lintConfig = file("lint.xml")
+        baseline = file("lint-baseline.xml")
+    }
+    composeCompiler {
+        reportsDestination = layout.buildDirectory.dir("compose_compiler")
+      /* stabilityConfigurationFile = rootProject.layout.projectDirectory.file("stability_config.conf")*/
+    }
 }
 
 dependencies {
@@ -66,4 +77,12 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    // Lint dependencies
+    lintChecks(project(":compose-lint1"))
+    lintChecks("com.android.tools.lint:lint-api:31.10.0")
+    lintChecks("com.android.tools.lint:lint-checks:31.10.0")
+    compileOnly("com.android.tools.lint:lint-api:31.10.0")
+    compileOnly("com.android.tools.lint:lint-checks:31.2.0")
+//    compileOnly("org.jetbrains.uast:uast-java:31.11.0-alpha10")
 }

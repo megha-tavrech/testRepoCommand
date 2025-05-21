@@ -40,8 +40,8 @@ jobs:
 #                script: ./gradlew connectedDebugAndroidTest
 
       #        Linting and Code Quality
-#      - name: Run lint checks
-#        run: ./gradlew lint
+      - name: Run lint checks
+        run: ./gradlew lint
 #
 #      - name: Run detekt (for Kotlin)
 #        run: ./gradlew detekt
