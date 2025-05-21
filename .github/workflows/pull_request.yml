@@ -1,8 +1,8 @@
 name: PullRequest CI
 
 on:
-#  push:
-#    branches: [ "master" ]
+  #  push:
+  #    branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
 
@@ -24,3 +24,79 @@ jobs:
         run: chmod +x gradlew
       - name: Build with Gradle
         run: ./gradlew build
+
+      - name: Run unit tests
+        run: ./gradlew test
+
+#      - name: Run Android instrumented tests
+#        run: ./gradlew connectedAndroidTest
+
+#      - name: Start Android Emulator
+#        uses: reactivecircus/android-emulator-runner@v2
+#        with:
+#                api-level: 33
+#                target: google_apis
+#                arch: x86_64
+#                script: ./gradlew connectedDebugAndroidTest
+
+      #        Linting and Code Quality
+#      - name: Run lint checks
+#        run: ./gradlew lint
+#
+#      - name: Run detekt (for Kotlin)
+#        run: ./gradlew detekt
+#
+#        #Security Scanning
+#      - name: Dependency Review
+#        uses: actions/dependency-review-action@v3
+#
+#      #        CD
+#      - name: Build Release APK
+#        run: ./gradlew assembleRelease
+#
+#      - name: Upload APK
+#        uses: actions/upload-artifact@v4
+#        with:
+#          name: app-release
+#          path: app/build/outputs/apk/release/app-release.apk
+#
+#          #Deploy to Firebase App Distribution or Play Store
+#
+#      - name: Upload to Firebase
+#        uses: wzieba/Firebase-Distribution-Github-Action@v1
+#        with:
+#          appId: ${{ secrets.FIREBASE_APP_ID }}
+#          token: ${{ secrets.FIREBASE_TOKEN }}
+#          groups: testers
+#          file: app/build/outputs/apk/release/app-release.apk
+#      #Google Play Store (via fastlane):
+#      - name: Upload to Google Play
+#        run: bundle exec fastlane deploy
+#
+#      #        Status Reporting
+#      - name: Notify on Slack
+#        uses: slackapi/slack-github-action@v1.24.0
+#        with:
+#          payload: '{"text":"Build complete!"}'
+#      # Code Coverage Reports
+#      - name: Generate code coverage report
+#        run: ./gradlew jacocoTestReport
+#
+#      - name: Upload coverage report
+#        uses: actions/upload-artifact@v4
+#        with:
+#          name: code-coverage-report
+#          path: app/build/reports/jacoco/jacocoTestReport/html/
+
+        #          Secrets and Environments
+#        env:
+#          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+#                            - name: Distribute APK via Firebase
+#                            uses: wzieba/Firebase-Distribution-Github-Action@v1
+#                            with:
+#                              appId: ${{ secrets.FIREBASE_APP_ID }}
+#                              token: ${{ secrets.FIREBASE_TOKEN }}
+#                              groups: testers
+#                              file: app/build/outputs/apk/release/app-release.apk
+
+
