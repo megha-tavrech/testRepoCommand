@@ -32,8 +32,9 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
+    if (name.isNotEmpty())
+        Text(
+            text = "Hello $name!",
+            modifier = modifier
+        )
 }

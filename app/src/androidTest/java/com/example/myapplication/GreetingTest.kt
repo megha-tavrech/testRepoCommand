@@ -17,7 +17,7 @@ class GreetingTest {
         // Set the Composable under test
         composeTestRule.setContent {
             MyApplicationTheme {
-                Greeting("Android")
+                Greeting("")
             }
         }
 
