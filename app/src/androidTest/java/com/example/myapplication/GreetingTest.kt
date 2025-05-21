@@ -18,6 +18,7 @@ class GreetingTest {
         composeTestRule.setContent {
             MyApplicationTheme {
                 Greeting("")
+                greeting("Android")
             }
         }
 
