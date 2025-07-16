@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.compose.compiler)
+    id("org.jlleitschuh.gradle.ktlint")
 }
 
 android {
@@ -49,10 +50,11 @@ android {
         }
     }
     lint {
-        abortOnError = false
-        checkReleaseBuilds = false
+        abortOnError = true
+        checkAllWarnings = true
         lintConfig = file("lint.xml")
         baseline = file("lint-baseline.xml")
+        //warnings += listOf("KotlinLint")
     }
     composeCompiler {
         reportsDestination = layout.buildDirectory.dir("compose_compiler")
